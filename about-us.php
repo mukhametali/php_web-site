@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/e1e963a8a6.js" crossorigin="anonymous"></script>
 
     <!-- Custom Styling   -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://www.fonts.com/">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>My blog</title>
@@ -54,14 +54,13 @@
     <div class="content row">
         <!-- Main content   -->
         <div class="main-content col-md-9 col-12">
-            <h2>Очень много буквы будет мне нужно посмотреть как он будет выглядит на визуале короче много
-                буков нужно мне
+            <h2>О нас
             </h2>
 
 
             <div class="single_post row">
                 <div class="img col-12">
-                    <img src="images/image-5.png" alt="" class="img-thumbnail">
+                    <img src="assets/images/image-6.png" alt="" class="img-thumbnail">
                 </div>
 
                 <div class="info">
@@ -73,8 +72,8 @@
                     <h3> Header 3</h3>
 
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque aut, dicta ea eius eveniet illum incidunt
-                      ipsa ipsum magni maxime<a href="#"> numquam</a> officiis omnis optio, repellat sapiente sed tempore voluptates.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque aut, dicta ea eius eveniet illum incidunt
+                        ipsa ipsum magni maxime<a href="#"> numquam</a> officiis omnis optio, repellat sapiente sed tempore voluptates.
                     </p>
 
                     <p>

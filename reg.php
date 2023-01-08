@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/e1e963a8a6.js" crossorigin="anonymous"></script>
 
     <!-- Custom Styling   -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://www.fonts.com/">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>My blog</title>
@@ -52,7 +52,7 @@
 <!-- FORM -->
 <div class="container reg_form">
 
-    <form class="row justify-content-md-center" method="post" action="reg.html">
+    <form class="row justify-content-md-center" method="post" action="reg.php">
         <h2>Форма регистрации</h2>
 
         <div class="w-100"></div>
