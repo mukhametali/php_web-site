@@ -96,7 +96,7 @@ function insert($table, $params){
     }
 
     $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
-    
+
     $query = $pdo->prepare($sql);
     $query->execute( $params);
     dbCheckError($query);
@@ -109,4 +109,33 @@ $arrData = [
     'password' => '123456789'
 ];
 
-insert('users', $arrData);
+// Обновления строки в таблицах
+function update($table, $id, $params){
+    global $pdo;
+    $i = 0;
+    $str = '';
+    foreach ($params as $key => $value){
+        if($i === 0){
+            $str = $str . $key . " = '" .$value."'";
+        }else{
+            $str = $str .", " . $key . " = '" . $value . "'";
+        }
+        $i++;
+    }
+
+    $sql = "UPDATE $table SET $str WHERE id = $id";
+    $query = $pdo->prepare($sql);
+    $query->execute( $params);
+    dbCheckError($query);
+}
+
+// Удаления строки в таблицах
+function delete($table, $id){
+    global $pdo;
+    $sql = "DELETE FROM $table WHERE id = $id";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+}
+delete('users', 45);
+
