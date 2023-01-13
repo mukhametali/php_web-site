@@ -336,6 +336,15 @@ FORMS
     transition: all .3s;
 }
 
+/*
+    FORMS
+*/
+
+form div.err{
+    color: red;
+    font-style: italic;
+    font-size: 0.8rem;
+}
 
 
 

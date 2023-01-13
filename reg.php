@@ -2,6 +2,7 @@
       include("path.php");
       include("app/controllers/users.php");
 ?>
+<!--HEADER START-->
 <!doctype html>
 <html lang="ru">
 <head>
@@ -26,23 +27,30 @@
 <?php
 include("app/include/header.php");
 ?>
-
+<!--HEADER END-->
 <!-- FORM -->
 <div class="container reg_form">
 
     <form action="reg.php" method="post" class="row justify-content-md-center">
         <h2>Форма регистрации</h2>
+        <div class="mb-3 col-12 col-md-4 err">
+            <p>
+                <?=$errMsg?>
+            </p>
+        </div>
+
+        <div class="w-100"></div>
 
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-            <input name="login" type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
+            <input name="login" value="<?=$login?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
         </div>
 
         <div class="w-100"></div>
 
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input name="mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="введите ваш email">
+            <input name="mail" value="<?=$email?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="введите ваш email">
             <div id="emailHelp" class="form-text">Ваш email адрес не будет использован для спама!</div>
         </div>
 
