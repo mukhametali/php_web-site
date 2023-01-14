@@ -199,7 +199,7 @@ SIDEBAR
 }
 .posts h2{
     text-align: center;
-    margin: 1.5rem 0;
+    margin: 2rem 0 0 0.4rem;
 }
 
 .posts .title-table div{
@@ -224,3 +224,7 @@ SIDEBAR
 .posts .post .id{
     font-weight: bold;
 }
+/*.add-post form div{*/
+/*    margin: 2rem 0;*/
+/*}*/
+
