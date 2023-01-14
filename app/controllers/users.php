@@ -6,6 +6,17 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 $errMsg = '';
 
+function userAuth($user){
+    $_SESSION['id'] = $user['id'];
+    $_SESSION['login'] = $user['username'];
+    $_SESSION['admin'] = $user['admin'];
+    if($_SESSION['admin']){
+        header('location: ' . BASE_URL . "admin/admin.php");
+    }else{
+        header('location: ' . BASE_URL);
+    }
+}
+
 // Код для формы регистрации
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
 
@@ -35,16 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
             ];
             $id = insert('users', $post);
             $user = selectOne('users', ['id' => $id]);
+            userAuth($user);
 
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['login'] = $user['username'];
-            $_SESSION['admin'] = $user['admin'];
-
-            if($_SESSION['admin']){
-                header('location: ' . BASE_URL . "admin/admin.php");
-            }else{
-                header('location: ' . BASE_URL);
-            }
         }
     }
 }else{
@@ -63,16 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
     }else{
         $existence = selectOne('users', ['email' => $email]);
         if ($existence && password_verify($pass, $existence['password'])){
-            $_SESSION['id'] = $existence['id'];
-            $_SESSION['login'] = $existence['username'];
-            $_SESSION['admin'] = $existence['admin'];
-
-            if($_SESSION['admin']){
-                header('location: ' . BASE_URL . "admin/admin.php");
-            }else{
-                header('location: ' . BASE_URL);
-            }
-
+            userAuth($existence);
         }else{
             $errMsg = "Почта либо пароль введены неверно!";
         }
