@@ -1,7 +1,9 @@
-<?php include("path.php"); ?>
+<?php  include 'path.php';
+       include("app/controllers/users.php");
+?>
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <!-- Required meta tags -->
@@ -30,25 +32,32 @@ include("app/include/header.php");
 
     <form class="row justify-content-md-center" method="post" action="log.php">
         <h2 class="col-12">Авторизация</h2>
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 col-md-4 err">
+            <p>
+                <?=$errMsg?>
+            </p>
+        </div>
 
         <div class="w-100"></div>
 
         <div class="mb-3 col-12 col-md-4">
-            <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
+            <label for="formGroupExampleInput" class="form-label">Ваша почта (при регистрации)</label>
+            <input name="mail" value="<?=$email?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="введите ваш email">
+
         </div>
 
         <div class="w-100"></div>
 
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
         </div>
 
         <div class="w-100"></div>
 
         <div class="mb-3 col-12 col-md-4">
-            <button type="button" class="btn btn-secondary">Войти</button>
+            <button type="submit" name="button-log" class="btn btn-secondary">Войти</button>
             <a href="aut.html">Зарегистрироваться</a>
 
         </div>

@@ -1,12 +1,14 @@
 <?php
 
 include("app/database/db.php");
-//тключаем все erorr
+//Отключаем все warning
 error_reporting(E_ALL ^ E_NOTICE);
 
 $errMsg = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+// Код для формы регистрации
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
+
     $admin = 0;
     $login = trim($_POST['login']);
     $email = trim($_POST['mail']);
@@ -39,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['admin'] = $user['admin'];
 
             if($_SESSION['admin']){
-                header('location: ' . BASE_URL . admin/admin.php);
+                header('location: ' . BASE_URL . "admin/admin.php");
             }else{
                 header('location: ' . BASE_URL);
             }
@@ -49,7 +51,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $login = '';
     $email = '';
 }
+// Код для формы авторизации
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
 
+    $email = trim($_POST['mail']);
+    $pass = trim($_POST['password']);
+
+
+    if($email === '' || $pass === '') {
+        $errMsg = 'Не все поля заполнены!';
+    }else{
+        $existence = selectOne('users', ['email' => $email]);
+        if ($existence && password_verify($pass, $existence['password'])){
+            $_SESSION['id'] = $existence['id'];
+            $_SESSION['login'] = $existence['username'];
+            $_SESSION['admin'] = $existence['admin'];
+
+            if($_SESSION['admin']){
+                header('location: ' . BASE_URL . "admin/admin.php");
+            }else{
+                header('location: ' . BASE_URL);
+            }
+
+        }else{
+            $errMsg = "Почта либо пароль введены неверно!";
+        }
+    }
+}else{
+    $email = '';
+}
 
 
 
