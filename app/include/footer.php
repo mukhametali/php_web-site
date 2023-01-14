@@ -3,7 +3,7 @@
     <div class="footer-content container">
         <div class="row">
             <div class="footer-section about col-md-4 col-12">
-                <h3 class="logo-text">Мой блог</h3>
+                <h3 class="logo-text">Ali's blog</h3>
                 <p>
                     Делаю учебный блог на процердурным PHP без ООП.Хотя PDO использовал.Ну это немножко)))
                 </p>

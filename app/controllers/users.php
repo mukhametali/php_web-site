@@ -17,23 +17,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     }elseif ($passF !== $passS ){
         $errMsg = "Пароли в обеих полях должны соответсвовать!";
     }else{
-        $pass = password_hash($passF, PASSWORD_DEFAULT);
-        $post = [
-            'admin' => $admin,
-            'username' => $login,
-            'mail' => $email,
-            'password' => $pass
-        ];
-        // $id = insert('users', $post);
-        tt($post);
+        $existence = selectOne('users', ['email' => $email]);
+        if ($existence['email'] === $email){
+            $errMsg = "Пользователь с такой почтой уже зарегистрирован!";
+        }else{
+            $pass = password_hash($passF, PASSWORD_DEFAULT);
+            $post = [
+                'admin' => $admin,
+                'username' => $login,
+                'email' => $email,
+                'password' => $pass
+            ];
+            $id = insert('users', $post);
+            $errMsg = "Пользователь " . "<strong>" . $login . "</strong>" . " успешно зарегистрирован!";
+        }
     }
-    // $last_row = selectOne('users', ['id' => $id]);
 }else{
-    echo 'GET';
     $login = '';
     $email = '';
 }
-//    $pass = password_hash($_POST['pass-second'], PASSWORD_DEFAULT);
 
 
 

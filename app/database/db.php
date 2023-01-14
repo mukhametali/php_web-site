@@ -1,7 +1,7 @@
 <?php
 
 require ('connect.php');
-
+// Тест
 function tt($value){
     echo '<pre>';
     print_r($value);
