@@ -7,8 +7,7 @@ function tt($value){
     echo '<pre>';
     print_r($value);
     echo '</pre>';
-
-
+    exit();
 }
 // Проверка выполнения запроса к БД
 function dbCheckError($query){
@@ -104,14 +103,7 @@ function insert($table, $params){
     return $pdo->lastInsertId();
 }
 
-$arrData = [
-    'admin' => '0',
-    'username' => 'Karlygash',
-    'email' => 'qwewrtylui233oiyeuhw@re.kz',
-    'password' => '123456789'
-];
-
-// Обновления строки в таблицах
+// Обновления строки в таблице
 function update($table, $id, $params){
     global $pdo;
     $i = 0;
@@ -134,7 +126,7 @@ function update($table, $id, $params){
 // Удаления строки в таблицах
 function delete($table, $id){
     global $pdo;
-    $sql = "DELETE FROM $table WHERE id = $id";
+    $sql = "DELETE FROM $table WHERE id =". $id;
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
