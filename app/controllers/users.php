@@ -1,8 +1,8 @@
 <?php
-
-include("app/database/db.php");
 //Отключаем все warning
 error_reporting(E_ALL ^ E_NOTICE);
+include("app/database/db.php");
+
 
 $errMsg = '';
 
